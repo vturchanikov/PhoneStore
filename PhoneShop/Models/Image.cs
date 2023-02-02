@@ -3,7 +3,7 @@
 public class Image
 {
     public long Id { get; set; }
-    public long ProductId { get; set; }
+    public long ProductCode { get; set; }
 
     public string Link { get; set; }
 }

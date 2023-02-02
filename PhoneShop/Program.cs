@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PhoneShop.Data;
+using PhoneShop.Interfaces;
+using PhoneShop.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,7 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
