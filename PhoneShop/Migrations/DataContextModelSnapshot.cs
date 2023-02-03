@@ -42,26 +42,6 @@ namespace PhoneShop.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("PhoneShop.Models.Image", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("Link")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("ProductCode")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Images");
-                });
-
             modelBuilder.Entity("PhoneShop.Models.Product", b =>
                 {
                     b.Property<long>("Id")
@@ -80,8 +60,9 @@ namespace PhoneShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("ImageId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("ImageLink")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -97,8 +78,6 @@ namespace PhoneShop.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("ImageId");
-
                     b.ToTable("Produts");
                 });
 
@@ -110,15 +89,7 @@ namespace PhoneShop.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PhoneShop.Models.Image", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Category");
-
-                    b.Navigation("Image");
                 });
 #pragma warning restore 612, 618
         }
