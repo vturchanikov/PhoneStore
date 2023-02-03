@@ -11,7 +11,7 @@ using PhoneShop.Data;
 namespace PhoneShop.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230202105450_InitialCreate")]
+    [Migration("20230203085505_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -90,7 +90,10 @@ namespace PhoneShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Price")
+                    b.Property<int>("PurchasePrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RetailPrice")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

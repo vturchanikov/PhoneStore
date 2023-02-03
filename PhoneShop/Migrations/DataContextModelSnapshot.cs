@@ -87,7 +87,10 @@ namespace PhoneShop.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Price")
+                    b.Property<int>("PurchasePrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RetailPrice")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

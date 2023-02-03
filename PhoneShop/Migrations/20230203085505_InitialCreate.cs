@@ -46,7 +46,8 @@ namespace PhoneShop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: false),
+                    PurchasePrice = table.Column<int>(type: "int", nullable: false),
+                    RetailPrice = table.Column<int>(type: "int", nullable: false),
                     Availability = table.Column<bool>(type: "bit", nullable: false),
                     CategoryId = table.Column<long>(type: "bigint", nullable: false),
                     ImageId = table.Column<long>(type: "bigint", nullable: false)

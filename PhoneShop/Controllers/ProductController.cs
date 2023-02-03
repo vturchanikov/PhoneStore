@@ -9,7 +9,7 @@ namespace PhoneShop.Controllers
 
         public ViewResult List(int categoryId)
         {
-            return View()
+            return View();
         }
     }
 }
