@@ -35,7 +35,7 @@ namespace PhoneShop.Controllers
         {
             ViewBag.Categories = _categoryRepository.Categories;
 
-            return View(id == 0 ? new Product() : null);
+            return View(id == 0 ? new Product() : _productRepository.GetProduct(id));
         }
 
         [HttpPost]
