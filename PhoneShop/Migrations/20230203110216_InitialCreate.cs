@@ -25,13 +25,14 @@ namespace PhoneShop.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Produts",
+                name: "Products",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ShortDescrition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PurchasePrice = table.Column<int>(type: "int", nullable: false),
                     RetailPrice = table.Column<int>(type: "int", nullable: false),
                     Availability = table.Column<bool>(type: "bit", nullable: false),
@@ -40,9 +41,9 @@ namespace PhoneShop.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Produts", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Produts_Categories_CategoryId",
+                        name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
@@ -50,8 +51,8 @@ namespace PhoneShop.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Produts_CategoryId",
-                table: "Produts",
+                name: "IX_Products_CategoryId",
+                table: "Products",
                 column: "CategoryId");
         }
 
@@ -59,7 +60,7 @@ namespace PhoneShop.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Produts");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Categories");

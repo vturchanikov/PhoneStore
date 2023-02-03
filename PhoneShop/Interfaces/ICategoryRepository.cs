@@ -9,5 +9,7 @@ namespace PhoneShop.Interfaces
         void AddCategory(Category category);
         void UpdateCategory(Category category);
         void DeleteCategory(Category category);
+
+        bool Save();
     }
 }

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PhoneShop.Data;
+using PhoneShop.Helpers;
 using PhoneShop.Interfaces;
 using PhoneShop.Repositories;
 
@@ -12,7 +13,9 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
