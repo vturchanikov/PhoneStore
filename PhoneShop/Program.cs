@@ -3,6 +3,7 @@ using PhoneShop.Data;
 using PhoneShop.Helpers;
 using PhoneShop.Interfaces;
 using PhoneShop.Repositories;
+using PhoneShop.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

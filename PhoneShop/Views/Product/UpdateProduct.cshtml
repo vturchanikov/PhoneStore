@@ -2,7 +2,7 @@
 @{
     Layout = "_Layout";
 }
-<form asp-action="UpdateProduct" method="post">
+<form asp-action="UpdateProduct" method="post" enctype="multipart/form-data">
     <div class="form-group" hidden> 
         <label asp-for="Id"></label> 
         <input asp-for="Id" class="form-control" readonly /> 
@@ -47,9 +47,9 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="ImageLink">Image Link</label>
-        <input asp-for="ImageLink" class="form-control" placeholder="ImageLink" />
-        <span asp-validation-for="ImageLink" class="text-danger"></span>
+        <label asp-for="ImgaeLink">Image</label>
+        <input asp-for="ImgaeLink" type="file" class="form-control" placeholder="ImageLink" />
+        <span asp-validation-for="ImgaeLink" class="text-danger"></span>
     </div>
 
     <div class="form-group">
