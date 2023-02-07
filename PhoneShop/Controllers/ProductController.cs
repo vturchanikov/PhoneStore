@@ -8,11 +8,13 @@ namespace PhoneShop.Controllers
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IProductRepository _productRepository;
+        private readonly IPhotoService _photoService;
 
-        public ProductController(ICategoryRepository categoryRepository, IProductRepository productRepository)
+        public ProductController(ICategoryRepository categoryRepository, IProductRepository productRepository, IPhotoService photoService)
         {
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
+            _photoService = photoService;
         }
 
         public ViewResult Index() =>
@@ -39,8 +41,14 @@ namespace PhoneShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult UpdateProduct(Product product)
+        public async Task<IActionResult> UpdateProduct(Product product)
         {
+            if(product.Image != null)
+            {
+                var result = await _photoService.AddPhotoAsync(product.Image);
+                product.ImageLink = result.Url.ToString();
+            }
+
             if (product.Id == 0)
             {
                 _productRepository.AddProduct(product);

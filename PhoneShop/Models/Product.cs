@@ -1,4 +1,6 @@
-﻿namespace PhoneShop.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace PhoneShop.Models;
 
 public class Product
 {
@@ -10,6 +12,9 @@ public class Product
     public int RetailPrice { get; set; }
     public bool Availability { get; set; }
     public string ImageLink { get; set; }
+
+    [NotMapped]
+    public IFormFile Image { get; set; }
 
     public long CategoryId { get; set; }
     public Category? Category { get; set; }  
