@@ -38,7 +38,7 @@ namespace PhoneShop.Controllers
         {
             ViewBag.Categories = _categoryRepository.Categories;
 
-            return View(id == 0 ? new UpdateProductViewModel() : _productRepository.GetProduct(id));
+            return View(id == 0 ? new Product() : _productRepository.GetProduct(id));
         }
 
         [HttpPost]
@@ -57,7 +57,7 @@ namespace PhoneShop.Controllers
                     PurchasePrice = productVM.PurchasePrice,
                     RetailPrice = productVM.RetailPrice,
                     Availability = productVM.Availability,
-                    ImageLink = result.Url.ToString(),
+                    ImgaeLink = result.Url.ToString(),
                     CategoryId = productVM.CategoryId
                 };
 
@@ -73,7 +73,7 @@ namespace PhoneShop.Controllers
                     PurchasePrice = productVM.PurchasePrice,
                     RetailPrice = productVM.RetailPrice,
                     Availability = productVM.Availability,
-                    ImageLink = result.Url.ToString(),
+                    ImgaeLink = result.Url.ToString(),
                     CategoryId = productVM.CategoryId
                 };
 
