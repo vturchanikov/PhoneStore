@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PhoneShop.Interfaces;
 using PhoneShop.Models;
-using PhoneShop.ViewModels;
 
 namespace PhoneShop.Controllers
 {
@@ -9,13 +8,11 @@ namespace PhoneShop.Controllers
     {
         private readonly ICategoryRepository _categoryRepository;
         private readonly IProductRepository _productRepository;
-        private readonly IPhotoService _photoService;
 
-        public ProductController(ICategoryRepository categoryRepository, IProductRepository productRepository, IPhotoService photoService)
+        public ProductController(ICategoryRepository categoryRepository, IProductRepository productRepository)
         {
             _categoryRepository = categoryRepository;
             _productRepository = productRepository;
-            _photoService = photoService;
         }
 
         public ViewResult Index() =>
@@ -42,41 +39,14 @@ namespace PhoneShop.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProduct(UpdateProductViewModel productVM)
+        public IActionResult UpdateProduct(Product product)
         {
-            var result = await _photoService.AddPhotoAsync(productVM.Image);
-            if (productVM.Id == 0)
+            if (product.Id == 0)
             {
-                
-
-                var product = new Product
-                {
-                    Name = productVM.Name,
-                    Description = productVM.Description,
-                    ShortDescrition = productVM.ShortDescrition,
-                    PurchasePrice = productVM.PurchasePrice,
-                    RetailPrice = productVM.RetailPrice,
-                    Availability = productVM.Availability,
-                    ImgaeLink = result.Url.ToString(),
-                    CategoryId = productVM.CategoryId
-                };
-
                 _productRepository.AddProduct(product);
             }
             else
             {
-                var product = new Product
-                {
-                    Name = productVM.Name,
-                    Description = productVM.Description,
-                    ShortDescrition = productVM.ShortDescrition,
-                    PurchasePrice = productVM.PurchasePrice,
-                    RetailPrice = productVM.RetailPrice,
-                    Availability = productVM.Availability,
-                    ImgaeLink = result.Url.ToString(),
-                    CategoryId = productVM.CategoryId
-                };
-
                 _productRepository.UpdateProduct(product);
             }
 
