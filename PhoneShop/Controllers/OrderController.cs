@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PhoneShop.Interfaces;
 using PhoneShop.Models;
+using PhoneShop.Models.Pages;
 
 namespace PhoneShop.Controllers;
 
@@ -15,7 +16,8 @@ public class OrderController : Controller
         _orderRepository = orderRepository;
     }
 
-    public IActionResult Index() => View(_orderRepository.Orders);
+    public IActionResult Index(QueryOptions options) 
+        => View(_orderRepository.GetOrders(options));
 
     public IActionResult EditOrder(long id)
     {

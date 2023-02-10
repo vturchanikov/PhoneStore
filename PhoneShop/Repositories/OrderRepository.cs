@@ -2,6 +2,7 @@
 using PhoneShop.Data;
 using PhoneShop.Interfaces;
 using PhoneShop.Models;
+using PhoneShop.Models.Pages;
 
 namespace PhoneShop.Repositories
 {
@@ -11,6 +12,11 @@ namespace PhoneShop.Repositories
 
         public IEnumerable<Order> Orders => _context.Orders
             .Include(o => o.Lines).ThenInclude(l => l.Product);
+
+        public PageList<Order> GetOrders(QueryOptions options)
+        {
+            return new PageList<Order>(_context.Orders.Include(o => o.Lines).ThenInclude(l => l.Product), options);
+        }
         
         public Order GetOrder(long id)
         {
