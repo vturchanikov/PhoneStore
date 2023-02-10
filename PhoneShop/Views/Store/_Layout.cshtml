@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Phone Store</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark p-4 text-white">
+            <div class="col-auto"><h4>PHONE STORE</h4></div>
+                @Html.Partial("Categories", ViewBag.Categories as IEnumerable<Category>)
+            <div class="col-auto text-right">
+                (Cart Goes Here)
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+</body>
+</html>

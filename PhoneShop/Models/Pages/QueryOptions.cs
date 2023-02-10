@@ -3,7 +3,7 @@
     public class QueryOptions
     {
         public int CurrentPage { get; set; } = 1;
-        public int PageSize { get; set; } = 2;
+        public int PageSize { get; set; } = 3;
 
         public string OrderPropertyName { get; set; }
         public bool DescendingOrder { get; set; }

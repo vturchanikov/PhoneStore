@@ -12,9 +12,15 @@ public class ProductRepository : Repository, IProductRepository
 
     public IEnumerable<Product> Products => _context.Products.Include(p => p.Category).ToList();
 
-    public PageList<Product> GetProducts(QueryOptions options)
+    public PageList<Product> GetProducts(QueryOptions options, long category = 0)
     {
-        return new PageList<Product>(_context.Products.Include(p => p.Category), options);
+        IQueryable<Product> query = _context.Products.Include(p => p.Category);
+        if(category != 0)
+        {
+            query = query.Where(p => p.CategoryId == category);
+        }
+
+        return new PageList<Product>(query, options);
     }
 
     public Product GetProduct(long id) =>

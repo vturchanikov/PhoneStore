@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Product>
+
+<div class="album py-5 bg-light">
+    
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach(Product p in Model)
+            {
+                <div class="col">
+                <div class="card shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" 
+                        width="100%" height="225" 
+                        src="@p.ImageLink" 
+                        role="img" aria-label="Placeholder: Thumbnail" />
+
+                    <div class="card-body">
+                        <p class="card-text">@p.ShortDescrition</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">To Cart</button>
+                        </div>
+                        <span>@p.RetailPrice $</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+    <div class="text-center">
+        @Html.Partial("Pages", Model)
+    </div>
+</div>

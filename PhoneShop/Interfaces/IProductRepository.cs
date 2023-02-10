@@ -7,7 +7,7 @@ public interface IProductRepository
 {
     IEnumerable<Product> Products { get; }
 
-    PageList<Product> GetProducts(QueryOptions options);
+    PageList<Product> GetProducts(QueryOptions options, long category);
 
     Product GetProduct(long id);
 
