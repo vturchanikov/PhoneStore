@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PhoneShop.Interfaces;
 using PhoneShop.Models;
+using PhoneShop.Models.Pages;
 
 namespace PhoneShop.Controllers
 {
@@ -17,8 +18,10 @@ namespace PhoneShop.Controllers
             _photoService = photoService;
         }
 
-        public ViewResult Index() =>
-            View();
+        public ViewResult Index(QueryOptions options) 
+        {
+            return View(_productRepository.GetProducts(options));
+        }
 
         public ViewResult List(int categoryId)
         {

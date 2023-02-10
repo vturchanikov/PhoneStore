@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PhoneShop.Interfaces;
 using PhoneShop.Models;
+using PhoneShop.Models.Pages;
 
 namespace PhoneShop.Controllers;
 
@@ -13,9 +14,9 @@ public class CategoryController : Controller
         _categoryRepository = categoryRepository;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(QueryOptions options)
     {
-        return View(_categoryRepository.Categories);
+        return View(_categoryRepository.GetCategories(options));
     }
 
     [HttpPost]

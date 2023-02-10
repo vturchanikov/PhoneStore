@@ -1,6 +1,7 @@
 ﻿using PhoneShop.Data;
 using PhoneShop.Interfaces;
 using PhoneShop.Models;
+using PhoneShop.Models.Pages;
 
 namespace PhoneShop.Repositories
 {
@@ -9,6 +10,11 @@ namespace PhoneShop.Repositories
         public CategoryRepository(DataContext context) : base(context) { }
 
         public IEnumerable<Category> Categories => _context.Categories.ToList();
+
+        public PageList<Category> GetCategories(QueryOptions options)
+        {
+            return new PageList<Category>(_context.Categories, options);
+        }
 
         public void AddCategory(Category category)
         {

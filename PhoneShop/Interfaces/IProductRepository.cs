@@ -1,10 +1,13 @@
 ﻿using PhoneShop.Models;
+using PhoneShop.Models.Pages;
 
 namespace PhoneShop.Interfaces;
 
 public interface IProductRepository
 {
     IEnumerable<Product> Products { get; }
+
+    PageList<Product> GetProducts(QueryOptions options);
 
     Product GetProduct(long id);
 
