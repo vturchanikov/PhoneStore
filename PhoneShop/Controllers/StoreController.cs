@@ -20,4 +20,11 @@ public class StoreController : Controller
         ViewBag.Categories = _categoryRepository.Categories;
         return View(_productRepository.GetProducts(productOptions, category));
     }
+
+    [HttpPost]
+    public IActionResult Detail(long id)
+    {
+        ViewBag.Categories = _categoryRepository.Categories;
+        return View(_productRepository.GetProduct(id));
+    }
 }
