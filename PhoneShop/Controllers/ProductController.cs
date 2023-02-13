@@ -41,22 +41,31 @@ namespace PhoneShop.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(Product product)
         {
-            if(product.Image != null)
+            if (product.CategoryId == null)
+                ModelState.AddModelError("", "The category field is required");
+
+            if (ModelState.IsValid)
             {
-                var result = await _photoService.AddPhotoAsync(product.Image);
-                product.ImageLink = result.Url.ToString();
+                if (product.Image != null)
+                {
+                    var result = await _photoService.AddPhotoAsync(product.Image);
+                    product.ImageLink = result.Url.ToString();
+                }
+
+                if (product.Id == 0)
+                {
+                    _productRepository.AddProduct(product);
+                }
+                else
+                {
+                    _productRepository.UpdateProduct(product);
+                }
+
+                return RedirectToAction(nameof(Index));
             }
 
-            if (product.Id == 0)
-            {
-                _productRepository.AddProduct(product);
-            }
-            else
-            {
-                _productRepository.UpdateProduct(product);
-            }
-
-            return RedirectToAction(nameof(Index));
+            ViewBag.Categories = _categoryRepository.Categories;
+            return View(product);
         }
 
         [HttpPost]

@@ -25,7 +25,10 @@ public class CategoryController : Controller
     [HttpPost]
     public IActionResult AddCategory(Category category)
     {
-        _categoryRepository.AddCategory(category);
+        if (ModelState.IsValid)
+        {
+            _categoryRepository.AddCategory(category);
+        }
 
         return RedirectToAction(nameof(Index));
     }
