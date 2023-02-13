@@ -18,14 +18,9 @@ namespace PhoneShop.Controllers
             _photoService = photoService;
         }
 
-        public ViewResult Index(QueryOptions options, long category = 0) 
+        public IActionResult Index(QueryOptions options, long category = 0) 
         {
             return View(_productRepository.GetProducts(options, category));
-        }
-
-        public ViewResult List(int categoryId)
-        {
-            return View();
         }
 
         [HttpPost]
