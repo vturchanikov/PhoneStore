@@ -21,7 +21,6 @@ public class StoreController : Controller
         return View(_productRepository.GetProducts(productOptions, category));
     }
 
-    [HttpPost]
     public IActionResult Detail(long id)
     {
         ViewBag.Categories = _categoryRepository.Categories;
