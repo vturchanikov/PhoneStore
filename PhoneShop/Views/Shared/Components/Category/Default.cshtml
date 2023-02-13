@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Category>
+
+<div class="col container-fluid d-inline-flex">
+    @foreach(Category c in Model)
+    {
+        <div style="margin-inline: 7px">
+            <a style="text-decoration: none; color: white" asp-controller="Store" asp-action="Index" asp-route-category="@c.Id"><h4>@c.Name</h4></a>
+        </div>
+    }
+</div>

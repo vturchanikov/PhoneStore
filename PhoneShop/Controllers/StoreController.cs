@@ -17,13 +17,11 @@ public class StoreController : Controller
 
     public IActionResult Index([FromQuery(Name = "options")] QueryOptions productOptions, long category = 0)
     {
-        ViewBag.Categories = _categoryRepository.Categories;
         return View(_productRepository.GetProducts(productOptions, category));
     }
 
     public IActionResult Detail(long id)
     {
-        ViewBag.Categories = _categoryRepository.Categories;
         return View(_productRepository.GetProduct(id));
     }
 }

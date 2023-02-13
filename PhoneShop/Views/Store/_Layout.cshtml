@@ -9,7 +9,7 @@
     <div class="container-fluid">
         <div class="row bg-dark p-4 text-white">
             <div class="col-auto"><h4>PHONE STORE</h4></div>
-                @Html.Partial("Categories", ViewBag.Categories as IEnumerable<Category>)
+                @await Component.InvokeAsync("Category")
             <div class="col-auto text-right">
                 @await Component.InvokeAsync("Cart", Context.Session)
             </div>

@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using PhoneShop.Interfaces;
 using PhoneShop.Models;
 using PhoneShop.Models.Pages;
 
 namespace PhoneShop.Controllers;
 
+[ViewComponent(Name = "Category")]
 public class CategoryController : Controller
 {
     private readonly ICategoryRepository _categoryRepository;
@@ -48,5 +51,13 @@ public class CategoryController : Controller
         _categoryRepository.DeleteCategory(category);
 
         return RedirectToAction(nameof(Index));
+    }
+
+    public IViewComponentResult Invoke()
+    {
+        return new ViewViewComponentResult
+        {
+            ViewData = new ViewDataDictionary<IEnumerable<Category>>(ViewData, _categoryRepository.Categories)
+        };
     }
 }

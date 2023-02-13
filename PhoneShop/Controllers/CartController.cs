@@ -25,7 +25,6 @@ public class CartController : Controller
     public IActionResult Index(string returnUrl)
     {
         ViewBag.returnUrl = returnUrl;
-        ViewBag.Categories = _categoryRepository.Categories;
 
         return View(GetCart());
     }
@@ -48,7 +47,6 @@ public class CartController : Controller
 
     public IActionResult CreateOrder()
     {
-        ViewBag.Categories = _categoryRepository.Categories;
         return View();
     }
 
@@ -69,7 +67,6 @@ public class CartController : Controller
 
     public IActionResult Completed()
     {
-        ViewBag.Categories = _categoryRepository.Categories;
         return View();
     }
 
