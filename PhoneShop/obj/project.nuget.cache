@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "gDm6xvMc7Fg6s3Lj3096m1kgr88FU2JFckXYFIgs199/9P7jYW8yORwHsHCmVEycI0qrNRLKC6REMjsRcmJ3Bw==",
+  "dgSpecHash": "i+/axDZTwXl5NnuetZ5vM4kDScLOB+dXTnY4DmwPu5umm7R43JIzU0lMk3CKQcwccY90gcl2c2y2cmgVypp1qg==",
   "success": true,
   "projectFilePath": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\PhoneShop.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "C:\\Users\\1234\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\7.0.2\\microsoft.entityframeworkcore.tools.7.0.2.nupkg.sha512",
     "C:\\Users\\1234\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\1234\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\1234\\.nuget\\packages\\microsoft.extensions.caching.sqlserver\\7.0.2\\microsoft.extensions.caching.sqlserver.7.0.2.nupkg.sha512",
     "C:\\Users\\1234\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\1234\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\1234\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",

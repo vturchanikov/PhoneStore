@@ -18,8 +18,22 @@
                         <p class="card-text">@p.ShortDescrition</p>
                         <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
+                        <form asp-controller="Cart" asp-action="AddToCart" method="post">
                             <a asp-action="Detail" asp-route-id="@p.Id" name="id" class="btn btn-sm btn-outline-secondary">View</a>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">To Cart</button>
+                            <button type="submit" class="btn btn-sm btn-outline-secondary">To Cart</button>
+
+                            <input type="hidden" name="Id" value="@p.Id" />
+                            <input type="hidden" name="Name" value="@p.Name" />
+                            <input type="hidden" name="Description" value="@p.Description" />
+                            <input type="hidden" name="ShortDescription" value="@p.ShortDescrition" />
+                            <input type="hidden" name="PurchasePrice" value="@p.PurchasePrice" />
+                            <input type="hidden" name="RetailPrice" value="@p.RetailPrice" />
+                            <input type="hidden" name="Availability" value="@p.Availability" />
+                            <input type="hidden" name="ImageLink" value="@p.ImageLink" />
+                            <input type="hidden" name="CategoryId" value="@p.CategoryId" />
+                            <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+                        </form>
                         </div>
                         <span>@p.RetailPrice $</span>
                         </div>
