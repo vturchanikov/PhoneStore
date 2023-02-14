@@ -20,7 +20,7 @@ public class Product
     public string? ImageLink { get; set; }
 
     [NotMapped]
-    public IFormFile Image { get; set; }
+    public IFormFile? Image { get; set; }
 
     [Display(Name = "category")]
     public long? CategoryId { get; set; }

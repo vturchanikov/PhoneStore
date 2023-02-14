@@ -53,16 +53,21 @@ public class CartController : Controller
     [HttpPost]
     public IActionResult CreateOrder(Order order)
     {
-        order.Lines = GetCart().Selections.Select(s => new OrderLine
+        if (ModelState.IsValid)
         {
-            ProductId = s.ProductId,
-            Quantity = s.Quantity
-        }).ToArray();
+            order.Lines = GetCart().Selections.Select(s => new OrderLine
+            {
+                ProductId = s.ProductId,
+                Quantity = s.Quantity
+            }).ToArray();
 
-        _orderRepository.AddOrder(order);
-        SaveCart(new Cart());
+            _orderRepository.AddOrder(order);
+            SaveCart(new Cart());
 
-        return RedirectToAction(nameof(Completed));
+            return RedirectToAction(nameof(Completed));
+        }
+
+        return View(order);
     }
 
     public IActionResult Completed()

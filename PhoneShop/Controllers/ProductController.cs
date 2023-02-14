@@ -46,14 +46,14 @@ namespace PhoneStore.Controllers
 
             if (ModelState.IsValid)
             {
-                if (product.Image != null)
-                {
-                    var result = await _photoService.AddPhotoAsync(product.Image);
-                    product.ImageLink = result.Url.ToString();
-                }
-
                 if (product.Id == 0)
                 {
+                    if (product.Image != null)
+                    {
+                        var result = await _photoService.AddPhotoAsync(product.Image);
+                        product.ImageLink = result.Url.ToString();
+                    }
+
                     _productRepository.AddProduct(product);
                 }
                 else

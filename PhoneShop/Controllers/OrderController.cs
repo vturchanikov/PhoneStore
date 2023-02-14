@@ -38,8 +38,9 @@ public class OrderController : Controller
     [HttpPost]
     public IActionResult AddOrUpdateOrder(Order order)
     {
+
         order.Lines = order.Lines
-            .Where(l => l.Id > 0 || (l.Id == 0 && l.Quantity > 0)).ToArray();
+        .Where(l => l.Id > 0 || (l.Id == 0 && l.Quantity > 0)).ToArray();
 
         if (order.Id == 0)
         {

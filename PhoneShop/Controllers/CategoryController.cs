@@ -43,7 +43,11 @@ public class CategoryController : Controller
     [HttpPost]
     public IActionResult UpdateCategory(Category category)
     {
-        _categoryRepository.UpdateCategory(category);
+
+        if (ModelState.IsValid)
+        {
+            _categoryRepository.UpdateCategory(category);
+        }
 
         return RedirectToAction(nameof(Index));
     }
