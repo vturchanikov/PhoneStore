@@ -1,6 +1,6 @@
-﻿using PhoneShop.Models;
+﻿using PhoneStore.Models;
 
-namespace PhoneShop.Models;
+namespace PhoneStore.Models;
 
 public class Cart
 {

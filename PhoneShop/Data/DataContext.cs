@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PhoneShop.Models;
+using PhoneStore.Models;
 
-namespace PhoneShop.Data
+namespace PhoneStore.Data
 {
     public class DataContext : DbContext
     {

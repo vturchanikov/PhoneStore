@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using PhoneShop.Infrastructure;
-using PhoneShop.Interfaces;
-using PhoneShop.Models;
+using PhoneStore.Infrastructure;
+using PhoneStore.Interfaces;
+using PhoneStore.Models;
 
-namespace PhoneShop.Controllers;
+namespace PhoneStore.Controllers;
 
 [ViewComponent(Name = "Cart")]
 public class CartController : Controller

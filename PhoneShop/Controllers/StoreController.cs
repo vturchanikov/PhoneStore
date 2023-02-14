@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PhoneShop.Interfaces;
-using PhoneShop.Models.Pages;
+using PhoneStore.Interfaces;
+using PhoneStore.Models.Pages;
 
-namespace PhoneShop.Controllers;
+namespace PhoneStore.Controllers;
 
 public class StoreController : Controller
 {

@@ -1,4 +1,4 @@
-﻿namespace PhoneShop.Models.Pages
+﻿namespace PhoneStore.Models.Pages
 {
     public class QueryOptions
     {

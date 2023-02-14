@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
-using PhoneShop.Interfaces;
-using PhoneShop.Models;
-using PhoneShop.Models.Pages;
+using PhoneStore.Interfaces;
+using PhoneStore.Models;
+using PhoneStore.Models.Pages;
 
-namespace PhoneShop.Controllers;
+namespace PhoneStore.Controllers;
 
 [ViewComponent(Name = "Category")]
 public class CategoryController : Controller

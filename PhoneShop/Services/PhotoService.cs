@@ -1,10 +1,10 @@
 ﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.Extensions.Options;
-using PhoneShop.Helpers;
-using PhoneShop.Interfaces;
+using PhoneStore.Helpers;
+using PhoneStore.Interfaces;
 
-namespace PhoneShop.Services;
+namespace PhoneStore.Services;
 
 public class PhotoService : IPhotoService
 {

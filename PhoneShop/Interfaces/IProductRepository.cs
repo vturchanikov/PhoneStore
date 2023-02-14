@@ -1,7 +1,7 @@
-﻿using PhoneShop.Models;
-using PhoneShop.Models.Pages;
+﻿using PhoneStore.Models;
+using PhoneStore.Models.Pages;
 
-namespace PhoneShop.Interfaces;
+namespace PhoneStore.Interfaces;
 
 public interface IProductRepository
 {

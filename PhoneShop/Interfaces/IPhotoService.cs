@@ -1,6 +1,6 @@
 ﻿using CloudinaryDotNet.Actions;
 
-namespace PhoneShop.Interfaces
+namespace PhoneStore.Interfaces
 {
     public interface IPhotoService
     {

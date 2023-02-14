@@ -1,4 +1,4 @@
-﻿namespace PhoneShop.Helpers
+﻿namespace PhoneStore.Helpers
 {
     public class CloudinarySettings
     {

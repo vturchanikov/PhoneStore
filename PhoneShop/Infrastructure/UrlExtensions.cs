@@ -1,4 +1,4 @@
-﻿namespace PhoneShop.Infrastructure;
+﻿namespace PhoneStore.Infrastructure;
 
 public static class UrlExtensions
 {

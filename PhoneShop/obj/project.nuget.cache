@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i+/axDZTwXl5NnuetZ5vM4kDScLOB+dXTnY4DmwPu5umm7R43JIzU0lMk3CKQcwccY90gcl2c2y2cmgVypp1qg==",
+  "dgSpecHash": "ZFabnTd33wGFLeFKF3tN5DiEev6b3Pg8BkNSnMU8h0rAeN+d0KSiMWMDU3qGST+J2p3lCVhif5+E89Jd4B0Qeg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\PhoneShop.csproj",
+  "projectFilePath": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\PhoneStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1234\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\1234\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

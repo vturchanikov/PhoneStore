@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PhoneShop.Data;
+using PhoneStore.Data;
 
 #nullable disable
 
-namespace PhoneShop.Migrations
+namespace PhoneStore.Migrations
 {
     [DbContext(typeof(DataContext))]
     [Migration("20230210071026_Orders")]

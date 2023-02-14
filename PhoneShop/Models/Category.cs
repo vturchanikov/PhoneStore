@@ -1,4 +1,4 @@
-﻿namespace PhoneShop.Models;
+﻿namespace PhoneStore.Models;
 
 public class Category
 {

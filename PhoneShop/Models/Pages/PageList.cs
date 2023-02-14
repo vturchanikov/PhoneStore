@@ -4,7 +4,7 @@ using System.Linq;
 using System;
 using System.Linq.Expressions;
 
-namespace PhoneShop.Models.Pages
+namespace PhoneStore.Models.Pages
 {
     public class PageList<T> : List<T>
     {

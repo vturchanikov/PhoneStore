@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PhoneShop.Data;
-using PhoneShop.Interfaces;
-using PhoneShop.Models;
-using PhoneShop.Models.Pages;
+using PhoneStore.Data;
+using PhoneStore.Interfaces;
+using PhoneStore.Models;
+using PhoneStore.Models.Pages;
 
-namespace PhoneShop.Repositories;
+namespace PhoneStore.Repositories;
 
 public class ProductRepository : Repository, IProductRepository
 {

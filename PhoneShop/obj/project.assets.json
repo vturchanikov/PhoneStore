@@ -3487,9 +3487,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\PhoneShop.csproj",
-      "projectName": "PhoneShop",
-      "projectPath": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\PhoneShop.csproj",
+      "projectUniqueName": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\PhoneStore.csproj",
+      "projectName": "PhoneStore",
+      "projectPath": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\PhoneStore.csproj",
       "packagesPath": "C:\\Users\\1234\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\1234\\Documents\\GitHub\\PhoneShop\\PhoneShop\\obj\\",
       "projectStyle": "PackageReference",

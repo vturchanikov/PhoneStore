@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace PhoneShop.Migrations
+namespace PhoneStore.Migrations
 {
     /// <inheritdoc />
     public partial class Orders : Migration

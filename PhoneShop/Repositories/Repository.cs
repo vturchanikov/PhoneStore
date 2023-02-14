@@ -1,6 +1,6 @@
-﻿using PhoneShop.Data;
+﻿using PhoneStore.Data;
 
-namespace PhoneShop.Repositories
+namespace PhoneStore.Repositories
 {
     public abstract class Repository
     {
