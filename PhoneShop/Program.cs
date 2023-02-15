@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PhoneStore.Data;
 using PhoneStore.Helpers;
@@ -10,10 +11,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string identityConnectionString = builder.Configuration.GetConnectionString("IdentityConnection");
 
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(connectionString));
 
+/*builder.Services.AddDbContext<IdentityDbContext>(options =>
+    options.UseSqlServer(identityConnectionString));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDbContext>().AddDefaultTokenProviders();*/
 builder.Services.AddDistributedSqlServerCache(options =>
 {
     options.ConnectionString = connectionString;
