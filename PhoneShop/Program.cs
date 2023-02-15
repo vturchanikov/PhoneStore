@@ -16,10 +16,10 @@ string identityConnectionString = builder.Configuration.GetConnectionString("Ide
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(connectionString));
 
-/*builder.Services.AddDbContext<IdentityDbContext>(options =>
+builder.Services.AddDbContext<IdentityDbContext>(options =>
     options.UseSqlServer(identityConnectionString));
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDbContext>().AddDefaultTokenProviders();*/
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDbContext>().AddDefaultTokenProviders();
 builder.Services.AddDistributedSqlServerCache(options =>
 {
     options.ConnectionString = connectionString;
