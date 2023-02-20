@@ -21,4 +21,6 @@ public class ResetPasswordViewModel
     public string ConfirmPassword { get; set; }
 
     public string Code { get; set; }
+
+
 }

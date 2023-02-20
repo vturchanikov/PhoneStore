@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using PhoneStore.Interfaces;
 using PhoneStore.Models;
 using PhoneStore.ViewModels;
@@ -10,14 +11,18 @@ public class AccountController : Controller
 {
     private readonly UserManager<IdentityUser> _userManager;
     private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
     private readonly ISendGridEmail _sendGridEmail;
 
-    public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager,
+    public AccountController(UserManager<IdentityUser> userManager, 
+        SignInManager<IdentityUser> signInManager,
+        RoleManager<IdentityRole> roleManager,
         ISendGridEmail sendGridEmail)
     {
         _userManager = userManager;
         _signInManager = signInManager;
         _sendGridEmail = sendGridEmail;
+        _roleManager = roleManager;
     }
 
     [HttpGet]
@@ -120,9 +125,28 @@ public class AccountController : Controller
         return View();
     }
 
+    [HttpGet]
     public async Task<IActionResult> Register(string? returnUrl = null)
     {
+        if(!await _roleManager.RoleExistsAsync("Admin"))
+        {
+            await _roleManager.CreateAsync(new IdentityRole("Admin"));
+            await _roleManager.CreateAsync(new IdentityRole("Customer"));
+        }
+        List<SelectListItem> listItems = new List<SelectListItem>();
+        listItems.Add(new SelectListItem()
+        {
+            Value = "Admin",
+            Text = "Admin"
+        });
+        listItems.Add(new SelectListItem()
+        {
+            Value = "Customer",
+            Text = "Customer"
+        });
+
         RegisterViewModel registerViewModel = new RegisterViewModel();
+        registerViewModel.RoleList = listItems;
         registerViewModel.ReturnUrl = returnUrl;
 
         return View(registerViewModel);
@@ -141,6 +165,16 @@ public class AccountController : Controller
 
             if (result.Succeeded)
             {
+                if(registerViewModel.RoleSelected != null && registerViewModel.RoleSelected.Length > 0 &&
+                    registerViewModel.RoleSelected == "Admin")
+                {
+                    await _userManager.AddToRoleAsync(user, "Admin");
+                }
+                else
+                {
+                    await _userManager.AddToRoleAsync(user, "Customer");
+                }
+
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 return LocalRedirect(returnUrl);
             }
@@ -155,7 +189,7 @@ public class AccountController : Controller
     public async Task<IActionResult> LogOff()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Index", "Store");
     }
 
 }

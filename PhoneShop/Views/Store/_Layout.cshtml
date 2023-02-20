@@ -20,9 +20,11 @@
                     <a style="text-decoration: none; color: white" href="#">
                         <h4>Hello @UserManager.GetUserName(User)</h4>
                     </a>
-                    <a style="text-decoration: none; color: white" asp-controller="Account" asp-action="LogOff">
-                        <h4>Logout</h4>
-                    </a>
+                    <form method="post" asp-controller="Account" asp-action="LogOff">
+                        <button class="btn-danger" type="submit" style="text-decoration: none; color: white">
+                            <h4>Logout</h4>
+                        </button>
+                    </form>
                 </div>
             }
             else
@@ -46,6 +48,19 @@
             </div>
         </div>
     </div>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <h3>Your role is Admin</h3>
+        }
+        else
+        {
+            <h3>Your role is Customer</h3>
+        }
+    }
+
     @RenderBody()
 </body>
 </html>
