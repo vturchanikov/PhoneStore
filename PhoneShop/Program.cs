@@ -19,6 +19,15 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddDbContext<IdentityDbContext>(options =>
     options.UseSqlServer(identityConnectionString));
 
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequiredLength = 5;
+    options.Password.RequireLowercase = true;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(10);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    //options.SignIn.RequireConfirmedAccount = true;
+});
+
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDbContext>().AddDefaultTokenProviders();
 builder.Services.AddDistributedSqlServerCache(options =>
 {
@@ -40,6 +49,8 @@ builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.AddTransient<ISendGridEmail, SendGridEmail>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration.GetSection("SendGrid"));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
