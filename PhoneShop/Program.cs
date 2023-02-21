@@ -29,6 +29,8 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDbContext>().AddDefaultTokenProviders();
+
+
 builder.Services.AddDistributedSqlServerCache(options =>
 {
     options.ConnectionString = connectionString;
@@ -70,8 +72,8 @@ app.UseSession();
 
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

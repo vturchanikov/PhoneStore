@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using PhoneStore.Interfaces;
@@ -7,6 +8,7 @@ using PhoneStore.Models.Pages;
 
 namespace PhoneStore.Controllers;
 
+[Authorize(Roles = "Admin")]
 [ViewComponent(Name = "Category")]
 public class CategoryController : Controller
 {

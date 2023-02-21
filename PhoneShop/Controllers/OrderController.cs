@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PhoneStore.Interfaces;
 using PhoneStore.Models;
 using PhoneStore.Models.Pages;
 
 namespace PhoneStore.Controllers;
 
+[Authorize(Roles = "Admin")]
 public class OrderController : Controller
 {
     private IProductRepository _productRepository;

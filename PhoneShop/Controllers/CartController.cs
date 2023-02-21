@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using PhoneStore.Infrastructure;
@@ -7,6 +8,7 @@ using PhoneStore.Models;
 
 namespace PhoneStore.Controllers;
 
+[Authorize]
 [ViewComponent(Name = "Cart")]
 public class CartController : Controller
 {
