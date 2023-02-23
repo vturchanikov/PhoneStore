@@ -32,9 +32,12 @@ public class CartController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddToCart(Product product, string returnUrl)
+    public IActionResult AddToCart(Product product, string returnUrl, int quantity = 1)
     {
-        SaveCart(GetCart().AddItem(product, 1));
+        if (quantity < 1)
+            quantity = 1;
+
+        SaveCart(GetCart().AddItem(product, quantity));
 
         return RedirectToAction(nameof(Index), new { returnUrl });
     }

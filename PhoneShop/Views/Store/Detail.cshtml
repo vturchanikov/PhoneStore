@@ -9,42 +9,34 @@
 
     <div class="row">
         <div class="rol-md-8">
-            <img class="bd-placeholder-img card-img-top" 
-                        width="225" height="225" 
+            <img class="bd-placeholder-img" 
+                        width="275" height="225" 
                         src="@Model.ImageLink" 
                         role="img" aria-label="Placeholder: Thumbnail" />
         </div>
 
         <div class="col-md-4">
-            <h3>@Model.Name</h3>
             <p>@Model.Description</p>
-        </div>
+            
+            <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                <p>
+                    <label>Quantity:</label>
+                    <input name="quantity" style="width: 45px" class="form-control" value="1"/>
+                    <span>@Model.RetailPrice$</span>
+                    <button type="submit" class="btn btn-success">To Cart</button>
+                </p>
 
-        <h3 class="my-4">Related Project</h3>
-        <div class="row">
-            <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#">
-                    <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="" />
-                </a>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#">
-                    <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="" />
-                </a>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#">
-                    <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="" />
-                </a>
-            </div>
-
-            <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#">
-                    <img class="img-fluid" src="https://via.placeholder.com/500x300" alt="" />
-                </a>
-            </div>
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="Name" value="@Model.Name" />
+                <input type="hidden" name="Description" value="@Model.Description" />
+                <input type="hidden" name="ShortDescription" value="@Model.ShortDescrition" />
+                <input type="hidden" name="PurchasePrice" value="@Model.PurchasePrice" />
+                <input type="hidden" name="RetailPrice" value="@Model.RetailPrice" />
+                <input type="hidden" name="Availability" value="@Model.Availability" />
+                <input type="hidden" name="ImageLink" value="@Model.ImageLink" />
+                <input type="hidden" name="CategoryId" value="@Model.CategoryId" />
+                <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            </form>
         </div>
     </div>
 </div>
