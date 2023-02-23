@@ -17,6 +17,11 @@ namespace PhoneStore.Repositories
         {
             return new PageList<Order>(_context.Orders.Include(o => o.Lines).ThenInclude(l => l.Product), options);
         }
+
+        public IEnumerable<Order> GetOrdersByUserName(string userName)
+        {
+            return _context.Orders.Where(o => o.UserName == userName).Include(o => o.Lines);
+        }
         
         public Order GetOrder(long id)
         {

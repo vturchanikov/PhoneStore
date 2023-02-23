@@ -8,11 +8,14 @@ public class StoreController : Controller
 {
     private readonly ICategoryRepository _categoryRepository;
     private readonly IProductRepository _productRepository;
+    private readonly IOrderRepository _orderRepository;
 
-    public StoreController(ICategoryRepository categoryRepository, IProductRepository productRepository)
+    public StoreController(ICategoryRepository categoryRepository, IProductRepository productRepository,
+        IOrderRepository orderRepository)
     {
         _categoryRepository = categoryRepository;
         _productRepository = productRepository;
+        _orderRepository = orderRepository;
     }
 
     public IActionResult Index([FromQuery(Name = "options")] QueryOptions productOptions, long category = 0)
@@ -23,5 +26,12 @@ public class StoreController : Controller
     public IActionResult Detail(long id)
     {
         return View(_productRepository.GetProduct(id));
+    }
+
+    public IActionResult DisplayOrders(string userName)
+    {
+        var orders = _orderRepository.GetOrdersByUserName(userName);
+
+        return View(orders);
     }
 }

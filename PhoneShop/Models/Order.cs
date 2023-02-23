@@ -12,5 +12,7 @@ public class Order
     public string PostalIndex { get; set; }
     public bool Shipped { get; set; }
 
+    public string UserName { get; set; }
+
     public IEnumerable<OrderLine>? Lines { get; set; }
 }

@@ -27,6 +27,7 @@
         <span asp-validation-for="PostalIndex" class="text-danger"></span>
     </div>
     <input type="hidden" asp-for="Shipped" value="@false" />
+    <input type="hidden" asp-for="UserName" value="@User.Identity.Name" />
     <div class="text-center m-2">
         <button type="submit" class="btn btn-primary">Place Order</button>
         <a asp-action="Index" class="btn btn-secondary">Cancel</a>

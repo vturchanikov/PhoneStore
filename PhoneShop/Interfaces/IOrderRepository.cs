@@ -8,6 +8,7 @@ public interface IOrderRepository
     IEnumerable<Order> Orders { get; }
 
     PageList<Order> GetOrders(QueryOptions options);
+    IEnumerable<Order> GetOrdersByUserName(string userName);
 
     Order GetOrder(long id);
 

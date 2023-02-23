@@ -17,8 +17,8 @@
             @if (SignInManager.IsSignedIn(User))
             {
                <div class="col-auto">
-                    <a style="text-decoration: none; color: white" href="#">
-                        <h4>Hello @UserManager.GetUserName(User)</h4>
+                    <a style="text-decoration: none; color: white" asp-action="DisplayOrders" asp-route-userName="@User.Identity.Name">
+                        <h4>My orders</h4>
                     </a>
                     <form method="post" asp-controller="Account" asp-action="LogOff">
                         <button class="btn-danger" type="submit" style="text-decoration: none; color: white">
