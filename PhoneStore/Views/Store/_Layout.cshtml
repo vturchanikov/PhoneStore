@@ -1,0 +1,54 @@
+﻿@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Phone Store</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark p-4 text-white">
+            <div class="col-auto"><h4>PHONE STORE</h4></div>
+                @await Component.InvokeAsync("Category")
+            
+            @if (SignInManager.IsSignedIn(User))
+            {
+               <div class="col-auto">
+                    <a style="text-decoration: none; color: white" asp-action="DisplayOrders" asp-route-userName="@User.Identity.Name">
+                        <h6>My orders</h6>
+                    </a>
+                    <form method="post" asp-controller="Account" asp-action="LogOff">
+                        <button class="btn btn-link" style="text-decoration: none; color: white" type="submit" value="logout">
+                            Logout
+                        </button>
+                    </form>
+                </div>
+            }
+            else
+            {
+                <div class="col-auto">
+                    <a style="text-decoration: none; color: white" asp-controller="Account" asp-action="Register">
+                        <h4>Register</h4>
+                    </a>
+                </div>
+
+                <div class="col-auto">
+                    <a style="text-decoration: none; color: white" asp-controller="Account" asp-action="Login">
+                        <h4>Login</h4>
+                    </a>
+                </div>  
+            }
+            
+
+            <div class="col-auto text-right">
+                @await Component.InvokeAsync("Cart", Context.Session)
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+</body>
+</html>

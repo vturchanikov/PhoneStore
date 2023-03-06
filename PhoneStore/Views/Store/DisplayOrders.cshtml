@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Order>
+
+@{
+    Layout = "_Layout";
+}
+
+<div >
+    <div class="row" style="display: flex; justify-content: flex-start; flex-wrap: nowrap">
+        <div class="col-1 font-weight-bold">Name</div>
+        <div class="col font-weight-bold">Address</div> 
+        <div class="col font-weight-bold">Region</div> 
+        <div class="col font-weight-bold">Postal Index</div>
+        <div class="col font-weight-bold">Shipped</div>
+    </div>
+
+    @foreach(Order order in Model)
+    {
+        <div class="row p-2">
+            <div class="col-1 font-weight-bold">@order.CustomerName</div>
+            <div class="col font-weight-bold">@order.Address</div>  
+            <div class="col font-weight-bold">@order.Region</div> 
+            <div class="col font-weight-bold">@order.PostalIndex</div>
+            <div class="col font-weight-bold">@if (order.Shipped == true) {<p>Yes</p>} else{<p>No</p>}</div>
+        </div>
+    }
+</div>
